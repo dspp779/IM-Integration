@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.jivesoftware.smack.SASLAuthentication;
-
 /**
  * Servlet implementation class IntegrateServlet
  */
@@ -23,14 +21,12 @@ public class IntegrateServlet extends HttpServlet {
      * Default constructor. 
      */
     public IntegrateServlet() {
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		String from = request.getParameter("from");
 		String to = request.getParameter("to");
 		if(from != null && to!=null) {

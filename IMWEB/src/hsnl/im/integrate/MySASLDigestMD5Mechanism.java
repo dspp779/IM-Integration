@@ -27,7 +27,7 @@ public class MySASLDigestMD5Mechanism extends SASLMechanism
         String mechanisms[] = {
             getName()
         };
-        Map props = new HashMap<>();
+        Map<String, Object> props = new HashMap<String, Object>();
         sc = Sasl.createSaslClient(mechanisms, null, "xmpp", hostname, props, this);
         super.authenticate();
     }
@@ -41,7 +41,7 @@ public class MySASLDigestMD5Mechanism extends SASLMechanism
         String mechanisms[] = {
             getName()
         };
-        Map props = new HashMap();
+        Map<String, Object> props = new HashMap<String, Object>();
         sc = Sasl.createSaslClient(mechanisms, null, "xmpp", host, props, this);
         super.authenticate();
     }
@@ -52,7 +52,7 @@ public class MySASLDigestMD5Mechanism extends SASLMechanism
         String mechanisms[] = {
             getName()
         };
-        Map props = new HashMap();
+        Map<String, Object> props = new HashMap<String, Object>();
         sc = Sasl.createSaslClient(mechanisms, null, "xmpp", host, props, cbh);
         super.authenticate();
     }

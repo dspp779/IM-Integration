@@ -3,12 +3,14 @@
   <display-name>IMWEB</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+    <servlet-name>im-integrate-startup</servlet-name>
+    <servlet-class>hsnl.im.XmppStartupServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
   <servlet>
     <servlet-name>im-integrate</servlet-name>
     <servlet-class>hsnl.im.IntegrateServlet</servlet-class>
@@ -17,4 +19,5 @@
     <servlet-name>im-integrate</servlet-name>
     <url-pattern>/go</url-pattern>
   </servlet-mapping>
+  
 </web-app>

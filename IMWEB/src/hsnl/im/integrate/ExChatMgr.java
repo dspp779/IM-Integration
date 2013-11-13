@@ -4,10 +4,10 @@ import org.jivesoftware.smack.XMPPException;
 /*This class is to manage chat exchange of the multiple service.
  *Also,It prepare for three service to exchange the chat  */
 public class ExChatMgr  {
-	private ChatUser side;
+	private ChatUserInterface side;
 	private String to = "";
 	
-	public ExChatMgr(ChatUser user, String to){
+	public ExChatMgr(ChatUserInterface user, String to){
 		this.side = user;
 		this.to = to;
 	}

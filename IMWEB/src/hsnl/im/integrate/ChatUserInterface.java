@@ -2,8 +2,10 @@ package hsnl.im.integrate;
 
 import org.jivesoftware.smack.MessageListener;
 import org.jivesoftware.smack.XMPPException;
+import org.jivesoftware.smack.packet.Message;
 
-public interface ChatUser extends MessageListener {
+public interface ChatUserInterface extends MessageListener {
 	
 	public void sendMessage(String message, String to) throws XMPPException;
+	public void sendMessage(Message message, String to) throws XMPPException;
 }

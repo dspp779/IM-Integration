@@ -18,7 +18,13 @@ public class IntegratePool {
 	
 	private static Map<String, List<ExChatMgr>> integrationList = new HashMap<String, List<ExChatMgr>>();
 
+	/**
+	 * Startup XMPP client and login
+	 * @throws IOException
+	 */
 	public static void init() throws IOException{
+		if(isRunning)
+			return;
 		// 請輸入人頭帳號
 		Gt = new Gtalk("testforim1@gmail.com","qa147258");
 		FB = new Facebook("testforim1@gmail.com","qa147258");
@@ -27,19 +33,31 @@ public class IntegratePool {
 		try {
 			FB.run();
 			Gt.run();
-			System.out.println("Login Finish");
 			isRunning = true;
+			System.out.println("Login Finish");
 		} catch (XMPPException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * Set an integration instance
+	 * @param from
+	 * @param to
+	 * @throws IOException
+	 */
 	public static void SetIntegration(String from, String to) throws IOException{
 		List<String> list = new ArrayList<String>();
 		list.add(to);
 		AddIntegration(from, list);
 	}
+	
+	/**
+	 * Set an integration instance
+	 * @param from
+	 * @param toList
+	 * @throws IOException
+	 */
 	public static void SetIntegration(String from, List<String> toList) throws IOException{
 		if(integrationList.containsKey(from)) {
 			List<ExChatMgr> list = integrationList.get(from);
@@ -49,54 +67,72 @@ public class IntegratePool {
 			AddIntegration(from, toList);
 	}
 
+	/**
+	 * Add receiver to a integration instance
+	 * @param from
+	 * @param to
+	 * @throws IOException
+	 */
 	public static void AddIntegration(String from, String to) throws IOException{
 		List<String> list = new ArrayList<String>();
 		list.add(to);
 		AddIntegration(from, list);	
 	}
+	
+	/**
+	 * Add receivers to a integration instance
+	 * @param from
+	 * @param toList
+	 * @throws IOException
+	 */
 	public static void AddIntegration(String from, List<String> toList) throws IOException{
-		if(!isRunning)
-			init();
-
 		from = FB.getId(from);
 		if(integrationList.containsKey(from))
 		{
 			List<ExChatMgr> list = integrationList.get(from);
-
-			for (String to : toList) {
-				ExChatMgr mgr = new ExChatMgr(getSendSide(to), to);
-				list.add(mgr);
-			}
+			for (String to : toList)
+				list.add(new ExChatMgr(getSendSide(to), to));
 		}
 		else
 		{
 			List<ExChatMgr> list = new ArrayList<ExChatMgr>();
-			for (String to : toList) {
-				ExChatMgr mgr = new ExChatMgr(getSendSide(to), to);
-				list.add(mgr);
-			}
+			for (String to : toList)
+				list.add(new ExChatMgr(getSendSide(to), to));
 			integrationList.put(from, list);
 		}
 	}
 
+	/**
+	 * send messages to integrated receivers
+	 * @param from
+	 * @param msg
+	 * @throws XMPPException
+	 */
 	public static void sendMsg(String from, String msg) throws XMPPException {
-		List<ExChatMgr> list = integrationList.get(from);
-		for( ExChatMgr mgr:list )
-		{
+		for( ExChatMgr mgr:integrationList.get(from) )
 			mgr.sendMsg(msg);
-		}
 	}
 	
-	private static ChatUser getSendSide(String to)
-	{
-		if(to.indexOf('@') < 0)
+	/**
+	 * get sending side to specified id
+	 * @param to
+	 * @return
+	 */
+	private static ChatUserInterface getSendSide(String to) {
+		String domain = to.substring(to.indexOf('@')+1);
+		if(domain.equalsIgnoreCase("gmail.com"))
+			return Gt;
+		else if(domain.equalsIgnoreCase("chat.facebook.com"))
 			return FB;
+		else
+			return FB;
+	}
+	
+	private static String getUID(String name) {
+		if(name.indexOf('@') < 0)
+			return name;
 		else {
-			String domain = to.substring(to.indexOf('@')+1);
-			if(domain.equalsIgnoreCase("gmail.com"))
-				return Gt;
-			else
-				return FB;
+			return FB.getId(name);
 		}
 	}
 }
