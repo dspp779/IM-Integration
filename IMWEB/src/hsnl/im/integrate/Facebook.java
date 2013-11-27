@@ -2,7 +2,9 @@ package hsnl.im.integrate;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.jivesoftware.smack.Chat;
 import org.jivesoftware.smack.ChatManagerListener;
@@ -69,6 +71,11 @@ public class Facebook implements ChatUserInterface {
 		}
 	}
 
+	public Set<String> getBuddyList() {
+		refreshBuddyList();
+		return friendlist.keySet();
+	}
+
 	public void addRoster(String bot, String email, String input) {
 		try {
 			addRoster(bot, input);
@@ -97,7 +104,7 @@ public class Facebook implements ChatUserInterface {
 			String from = chat.getParticipant();
 			System.out.println(from + " from FB:" + msg);
 			try {
-				IntegratePool.sendMsg(from, msg);
+				IntegrationPool.sendMsg(from, msg);
 			} catch (XMPPException e) {
 				e.printStackTrace();
 			}

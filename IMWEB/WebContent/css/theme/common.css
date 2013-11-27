@@ -1,0 +1,99 @@
+@CHARSET "UTF-8";
+
+html {
+	font-family: 'Segoe UI', Tahoma, sans-serif;
+	background-image: url(./noise.png);
+}
+
+body {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+	border-style: none;
+}
+
+legend {
+	font-size: 22px;
+	color: #309;
+	font-variant:small-caps;
+	font-weight: bold;
+	text-align: center;
+	border-bottom: 1px solid transparent;
+	width: 90%;
+}
+
+#userForm legend {
+	color: #84B8D9;
+}
+
+#userForm button {
+	background: #FFF;
+	color: #222;
+	border: 1px solid #555;
+}
+
+.title {
+	font-size: 28px;
+	font-weight: bold;
+	color: #353D49;
+	text-align: center;
+	border-bottom: 1px solid #222;
+	//background: rgba(0, 0, 0, 0.4);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.12) 40%, rgba(0, 0, 0, 0.3));
+	background-image: -o-linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.12) 40%, rgba(0, 0, 0, 0.3));
+	background-image: -ms-linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.12) 40%, rgba(0, 0, 0, 0.3));
+	background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.12) 40%, rgba(0, 0, 0, 0.3));
+	background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.15) 40%, rgba(0, 0, 0, 0.3));
+}
+
+.button {
+	cursor: pointer;
+	color: #777;
+	position: relative;
+	font-size: 22px;
+	display: inline-block;
+	padding: 2px 8px 4px;
+	border: 1px solid #AAA;
+	border-radius: 10px;
+	width: 100px;
+	margin-top: 5px;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.12));
+	background-image: -o-linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.12));
+	background-image: -ms-linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.12));
+	background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.12));
+	background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.12));
+}
+
+.button:hover {
+	color: #464E5A;
+	border: 1px solid #777;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.12));
+	background-image: -o-linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.12));
+	background-image: -ms-linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.12));
+	background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.12));
+	background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.12));
+	z-index: 3;
+}
+
+#info-area {	
+	-o-transition: all 0.5s linear;
+	-ms-transition: all 0.5s linear;
+	-moz-transition: all 0.5s linear;
+	-webkit-transition: all 0.5s linear;
+}
+
+.footer {
+	font-size: 12px;
+	text-align: right;
+	color: #464E5A;
+	opacity:0.2;
+}
+
+.footer:hover {
+	opacity:0.8;
+}

@@ -3,12 +3,14 @@ package hsnl.im.integrate;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.jivesoftware.smack.XMPPException;
 
-public class IntegratePool {
+public class IntegrationPool {
 	public static boolean isFinish = false;
 	public static boolean isRecevie = false;
 	public static boolean isEnd = false;
@@ -102,6 +104,18 @@ public class IntegratePool {
 		}
 	}
 
+	public static void removeIntegration(String from) {
+		from = FB.getId(from);
+		integrationList.remove(from);
+	}
+	
+	public static Set<String> getFriendList()
+	{
+		Set<String> set = new HashSet<String>();
+		set.addAll(FB.getBuddyList());
+		set.addAll(Gt.getBuddyList());
+		return set;
+	}
 	/**
 	 * send messages to integrated receivers
 	 * @param from

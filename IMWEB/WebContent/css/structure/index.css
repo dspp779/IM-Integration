@@ -1,0 +1,148 @@
+@CHARSET "UTF-8";
+
+.main-area {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+#content {
+	top: 105px;
+	bottom: 22px;
+	left: 2px;
+	right: 2px;
+	position: absolute;
+	margin: 0;
+	padding: 10px;
+	overflow-y: auto;
+}
+
+#menu {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 70px;
+	margin: 0;
+	z-index: 3;
+	list-style: none;
+	background: rgba(0, 0, 0, 0.6);
+}
+
+#menu li {
+	display: inline-block;
+}
+
+#core {
+	position: absolute;
+	top: 32px;
+	font-size: 16px;
+	list-style: none;
+	padding-left: 0;
+	display: none;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+#menu #core a {
+	color: #C8D1E2;
+	text-decoration: none;
+}
+
+#menu #core li:hover a {
+	color: #426BDF;
+}
+
+#menu #core li:active a {
+	text-decoration: underline;
+	color: #FF9900;
+}
+
+#core li {
+	width: 100px;
+	display: block;
+	cursor: pointer;
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid transparent;
+	-o-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
+}
+
+#core li:hover {
+	color: #426BDF;
+	background-color: rgba(0, 0, 0, 0.3);
+	border-color: rgba(0, 0, 0, 0.1);
+}
+
+.buddylist {
+	width: 450px;
+	display: inline-table;
+	background-color: rgba(0, 0, 0, 0.1);
+	padding: 20px 0;
+	margin: 0 50px;
+}
+
+#buddy-view {
+	overflow-y: auto;
+	text-align: left;
+	width: 90%;
+	margin: 0 auto;
+}
+
+.buddy-view-att {
+	margin: 5px 20px;
+	padding: 5px 10px;
+	min-height: 20px;
+	text-align: left;
+}
+
+.buddy-view-outline {
+	margin: 5px 20px;
+	padding: 5px 10px;
+	min-height: 20px;
+}
+
+#comment-area {
+	margin: 5px 0px;
+	padding: 5px 10px;
+}
+
+.comment {
+	margin: 10px 20px;
+	padding: 5px 10px;
+	min-height: 20px;
+	text-align: left;
+}
+
+#comment-form {
+	margin-top: 5px;
+}
+
+#buddy-form {
+	text-align: left;
+	font-size: 16px;
+	padding-top: 15px;
+	padding-bottom: 30px;
+	width: 70%;
+	min-width: 800px;
+	margin: auto;
+}
+
+#search-form {
+	text-align: center;
+}
+
+#state {
+	left: 0;
+	right: 0;
+	position: absolute;
+	padding: 0 50px;
+}
+
+#stateImg {
+	height: 140px;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin: 0 auto;
+}

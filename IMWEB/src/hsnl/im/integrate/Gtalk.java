@@ -1,8 +1,8 @@
 package hsnl.im.integrate;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.jivesoftware.smack.Chat;
 import org.jivesoftware.smack.ChatManagerListener;
@@ -14,7 +14,7 @@ import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.packet.Message;
 
 public class Gtalk implements ChatUserInterface {
-	private List<String> friendlist = new ArrayList<String>();
+	private Set<String> friendlist = new HashSet<String>();
 	
 	private XMPPConnection connection;
 	private String username = "";
@@ -59,6 +59,11 @@ public class Gtalk implements ChatUserInterface {
 			System.out.println(r.getUser());
 		}
 	}
+	
+	public Set<String> getBuddyList() {
+		refreshBuddyList();
+		return friendlist;
+	}
 
 	public void addRoster(String bot, String email, String input) {
 		try {
@@ -94,7 +99,7 @@ public class Gtalk implements ChatUserInterface {
 			String from = chat.getParticipant();
 			System.out.println(from + " from Gtalk:" + msg);
 			try {
-				IntegratePool.sendMsg(from, msg);
+				IntegrationPool.sendMsg(from, msg);
 			} catch (XMPPException e) {
 				e.printStackTrace();
 			}

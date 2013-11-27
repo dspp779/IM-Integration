@@ -1,23 +1,31 @@
 <html>
 <head>
-	<title>首頁</title>
+	<title>跨平台雲端簡訊整合</title>
 	<meta charset="UTF-8">
+	<link type="text/css" href="css/structure/common.css" rel="stylesheet" />
+	<link type="text/css" href="css/theme/common.css" rel="stylesheet" />
+	<link type="text/css" href="css/theme/buddyBlock.css" rel="stylesheet" />
+	<link type="text/css" href="css/structure/index.css" rel="stylesheet" />
+	<link type="text/css" href="css/theme/index.css" rel="stylesheet" />
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>	
+	<script type="text/javascript" src="index.js"></script>
 </head>
 <body>
-<table border="1" style="width:100%; height:100px;" >
-	<tr><td colspan="2">即時訊息系統整合</td></tr>
-	<tr>
-		<td style="width:75%"></td>
-		<td>enter your receiver:<input type="text"></td>
-	</tr>
-	<tr>
-		<td style="width:75%; height:500px;">
-		<div style="max-height:500px;overflow:scroll; line-height:200px;font-weight:800;">
-			1<br />2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21
+<div class="container">
+	<div class="title">
+		<div class="logo">跨平台雲端簡訊整合</div>
+	</div>
+	<div class="main-area"><div id="content">
+		<div id="list-area" style="text-align:center">
+			<div id="fromlist" class="buddylist"></div>
+			<div id="tolist" class="buddylist"></div>
 		</div>
-		</td>
-	</tr>
-	<tr><td colspan="2">enter your message:<textarea rows="5" style="width:100%;"></textarea></td></tr>
-</table>
+		<div id="button-area" style="text-align:center;margin:30px 0;">
+			<div class="button" onclick="javascript:newIntegration();">Set</div>		
+			<div class="button" onclick="javascript:resetIntegration();">Reset</div>
+		</div>
+		<div id="info-area" style="text-align:center;color:red;font-weight:bold;display:none;"></div>
+	</div></div>
+</div>
 </body>
 </html>

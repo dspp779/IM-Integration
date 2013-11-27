@@ -1,6 +1,6 @@
 package hsnl.im;
 
-import hsnl.im.integrate.IntegratePool;
+import hsnl.im.integrate.IntegrationPool;
 
 import java.io.IOException;
 
@@ -25,7 +25,7 @@ public class XmppStartupServlet extends HttpServlet {
     public XmppStartupServlet() {
         super();
         try {
-			IntegratePool.init();
+			IntegrationPool.init();
 		} catch (IOException e) {
 			e.printStackTrace();
 			Debug.println("XMPP", "startup fail");
